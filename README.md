@@ -11,5 +11,5 @@ npm install react-json-csv-convert
 ## Usage
 
 ```js
-import JSONtoCSVConverter from 'JSONtoCSVConverter'
+import {JSONtoCSVConverter} from 'JSONtoCSVConverter'
 ```
