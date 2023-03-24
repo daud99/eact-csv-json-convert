@@ -29,8 +29,8 @@
     "url": "https://github.com/daud99/react-csv-json-convert/issues"
   },
   "homepage": "https://github.com/daud99/react-csv-json-convert#readme",
-  "main": "lib/index.js",
-  "files": [ "lib", "README.md" ],
+  "main": "index.js",
+  "files": [ "index.js", "JSONtoCSVConverter", "README.md" ],
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
