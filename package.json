@@ -1,7 +1,37 @@
 {
   "name": "react-json-csv-convert",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "React-JSON-CSV is a powerful npm package that allows you to effortlessly convert JSON data to CSV format directly within your React app. With React-JSON-CSV, you can easily perform various preprocessing steps before converting your data, such as combining multiple fields in your JSON into a single CSV field, searching for values from an object based on a field in your JSON, and formatting the data before adding it to the CSV. With its intuitive interface and robust functionality, React-JSON-CSV is the perfect solution for developers looking to streamline their data conversion process.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daud99/react-csv-json-convert.git"
+  },
+  "keywords": [
+    "react",
+    "json",
+    "csv",
+    "convert",
+    "conversion",
+    "preprocessing",
+    "data",
+    "streamlining",
+    "formatting",
+    "fields",
+    "values",
+    "objects",
+    "npm",
+    "package",
+    "development"
+  ],
+  "author": "Daud Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daud99/react-csv-json-convert/issues"
+  },
+  "homepage": "https://github.com/daud99/react-csv-json-convert#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [ "dist", "README.md" ],
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
