@@ -15,19 +15,23 @@ import {JSONtoCSVConverter} from 'JSONtoCSVConverter'
 ```
 ## PROPS
 
-| Prop Name | Default Value | Type | Description |
-|-----------|---------------|------|-------------|
-| data     | []         | array | An array property containing the actual JSON data we want to convert to CSV   |
-| csvConfig     | { headers: [],keys: [], actions: []} | object | An object property which contains three arrays headers contain the name of the each of the column in CSV ,keys contain the path of fields in JSON whose value need to be populated for respective column for nested value the fields are seperated by . and do merge two different fields in a single value fields are seperated by __ (double underscore), and action consist of function or dictionaries or null which will be applied before finally inserting value into CSV 
-| children     | <button>Export</button> | html element | It will be the one which is rendered for the component by default it's simply the Export button |
-| columnDelimiter     | ','            | string | A column delimiter for CSV |
-| lineDelimiter     | '\n'            | string  | A line delimiter for CSV |
-| handleError     | (e) => { console.log(e) } | function | This function will be trigger if any error occurr in case of error while exporting CSV |
-| fileName | JSONToCSV.csv | string  | The name of the exported file |
-| styleProp | null          | object  | This object will contain CSS properties which will be applied to the root element (div) of the component |
+| Property Name   | Default Value                                               | Type        | Description                                                                                                                                                      |
+|-----------------|-------------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| data            | []                                                          | array       | An array property containing the actual JSON data we want to convert to CSV.                                                                                    |
+| csvConfig       | { headers: [], keys: [], actions: [] }                      | object      | An object property which contains three arrays.                                                                                                                |
+| headers         | Array of strings                                            | array       | An array of column names for the CSV.                                                                                                                           |
+| keys            | Array of strings                                            | array       | An array of paths to the fields in the JSON whose value needs to be populated for the respective column. For nested values, the fields are separated by a dot. To merge two different fields in a single value, fields are separated by a double underscore. |
+| actions         | Array of functions, dictionaries, or null values            | array       | An array of functions or dictionaries or null values which will be applied before finally inserting a value into the CSV.                                      |
+| children        | `<button>Export</button>`                                   | html element| The HTML element that will be rendered for the component. By default, it is simply the Export button.                                                           |
+| columnDelimiter | ','                                                         | string      | A column delimiter for the CSV.                                                                                                                                 |
+| lineDelimiter   | '\n'                                                        | string      | A line delimiter for the CSV.                                                                                                                                   |
+| handleError     | `(e) => { console.log(e) }`                                 | function    | This function will be triggered if any error occurs while exporting CSV.                                                                                         |
+| fileName        | 'JSONToCSV.csv'                                             | string      | The name of the exported file.                                                                                                                                  |
+| styleProp       | null                                                        | object      | This object will contain CSS properties which will be applied to the root element (div) of the component.                                                        |
+
 ## Example
 
-```reactjs
+```js
 import moment from "moment-timezone"
 import {JSONtoCSVConverter} from 'JSONtoCSVConverter'
 
@@ -124,3 +128,17 @@ const myComponent = () => {
     )
 }
 ```
+
+### Explanation
+
+In the above example, we have an array of profile which we want to transform into CSV file. 
+
+As we can have deep nested JSON i.e. an object can have an object inside it and that object can have another object inside it, so you can simply traverse the path to get the value which you want to use by separating it by `.` just like we do it in JavaScript for instance `object1.object2.object3.name` this will automatically grasp the value of name and put it in the final CSV exported.
+
+We want to merge the name i.e. firstname and lastname for this, in the respective value in the keys array, we have `profile.first_name__profile.last_name`. Here `__` (double underscore) tells that we want to concatenate the two fields. We can concatenate any two fields by using `__` (double underscore) between the fields in the respective value in the keys array.
+
+Similarly, we have the `admit_date` field in the array; however, we want to format it in a specific way. For this, we have defined a function `getDateString` in the actions array for the `admit_date` field. So, for each instance in the array, the `getDateString` method will receive the `admit_date` as an argument and will return the formatted string. We have done almost the same thing for the `data_of_birth` field. Instead of formatting, we're calculating the age using the `calculateAge` method.
+
+Lastly, we have `ethncityOptions` defined as the action for the `ethnicity` field. The type of action will be automatically determined. If it's an object, which is the case for `ethncityOptions`, the respective value will be returned from that object. The value of the field will be used as the key to look up in the object. On the other hand, if it's a function, it will be simply passed as an argument, and whatever is returned from the respective function will be put in the final CSV exported. Note that for those fields for which we want to retain the original value, we specified `null` as the action.
+
+
