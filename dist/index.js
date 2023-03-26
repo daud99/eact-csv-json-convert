@@ -9,5 +9,5 @@ Object.defineProperty(exports, "JSONtoCSVConverter", {
     return _JSONtoCSVConverter.default;
   }
 });
-var _JSONtoCSVConverter = _interopRequireDefault(require("./JSONtoCSVConverter"));
+var _JSONtoCSVConverter = _interopRequireDefault(require("./components/JSONtoCSVConverter"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

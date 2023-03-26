@@ -72,6 +72,7 @@ const JSONtoCSVConverter = ({ data, csvConfig, fileName, children, columnDelimit
       return result
     } catch (e) {
       handleError(e)
+      return ''
     }
   }
 

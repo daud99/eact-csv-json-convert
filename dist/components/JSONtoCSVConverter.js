@@ -88,6 +88,7 @@ const JSONtoCSVConverter = _ref => {
       return result;
     } catch (e) {
       handleError(e);
+      return '';
     }
   };
   const downloadCSV = () => {
