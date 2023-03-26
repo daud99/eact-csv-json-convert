@@ -142,3 +142,18 @@ To merge two fields, such as the first name and last name, use a double undersco
 To format a field, such as the admit date, define a function in the "actions" array for that field. The function will receive the value of the field as an argument and return the formatted string. For instance, for the admit date field, you can define a getDateString function that will receive the "admit_date" value as an argument and return the formatted string. For the date of birth field, you can calculate the age using the calculateAge method.
 
 Lastly, if you want to look up a value in an object, define the object as the action for the field. If the action is an object, such as ethnicityOptions, the value of the field will be used as the key to look up in the object. On the other hand, if the action is a function, it will be passed the field value as an argument, and whatever is returned from the respective function will be put in the final CSV. Note that for fields where you want to retain the original value, specify null as the action.
+
+## Contributing
+
+We welcome contributions from anyone interested in improving this package! To get started, please follow these steps:
+
+1. Fork this repository by clicking the "Fork" button on the top-right corner of [this](https://github.com/daud99/react-csv-json-convert.git) page.
+2. Clone your forked repository to your local machine by running `git clone https://github.com/<your-username>/react-csv-json-convert.git`.
+3. Navigate to the `src/lib/components` folder and make any changes or improvements you'd like to the component(s) in this folder.
+4. Once you've made your changes, run `npm run build` to build the updated package files.
+5. Commit your changes to your local repository with a descriptive commit message.
+6. Push your changes to your forked repository with the command `git push origin`.
+7. Create a pull request by clicking the "New pull request" button on the top-right corner of the original repository page.
+8. We'll review your changes and merge them into the package if they meet our guidelines and standards.
+
+Thank you for your contribution! If you have any questions or need help with the process, please don't hesitate to reach out to us.
